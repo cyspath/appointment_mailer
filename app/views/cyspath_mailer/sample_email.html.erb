@@ -10,5 +10,21 @@
 
       Please reply anything to appointment.mailer@gmail.com to confirm that you have successfully received this email.
     </p>
+
+    <h3>Your appointments:</h3>
+    <% @appointments.each do |apt| %>
+      <p>
+        <strong>Date:</strong>
+        <%= apt.date.strftime("%b %d, %Y - %A") %>
+      </p>
+
+      <p>
+        <strong>Time:</strong>
+        <%= apt.time.strftime("%I:%M%p") %>
+      </p>
+      <br>
+    <% end %>
+
+
   </body>
 </html>

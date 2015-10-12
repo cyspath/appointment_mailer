@@ -3,6 +3,7 @@ class CyspathMailer < ApplicationMailer
 
   def sample_email(patient)
     @patient = patient
+    @appointments = patient.appointments
     mail(to: @patient.email, subject: 'Medical Appointment Reminder')
   end
 

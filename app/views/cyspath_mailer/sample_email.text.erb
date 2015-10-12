@@ -3,3 +3,12 @@ Hi <%= @patient.first_name %>,
 This is a test mail sent using smtp from Michael's automated mailer application built with Rails.
 
 Please reply anything to appointment.mailer@gmail.com to confirm that you have successfully received this email.
+
+Your appointments:
+<% @appointments.each do |apt| %>
+
+Date: <%= apt.date.strftime("%b %d, %Y - %A") %>
+
+Time: <%= apt.time.strftime("%I:%M%p") %>
+
+<% end %>

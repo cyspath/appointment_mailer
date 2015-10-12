@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Patient ID</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Email</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
+        <td><%= patient.id %></td>
         <td><%= patient.first_name %></td>
         <td><%= patient.last_name %></td>
         <td><%= patient.email %></td>
@@ -31,3 +33,6 @@
 <br>
 
 <%= link_to 'New Patient', new_patient_path %>
+
+<br>
+<%= link_to 'Appointment Index', appointments_url %>
