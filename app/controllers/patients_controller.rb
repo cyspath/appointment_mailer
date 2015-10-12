@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:send, :edit, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   # GET /patients
   # GET /patients.json
@@ -12,7 +12,8 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
     @patient.send_reminder
-    render json: 'Email sent to ' + @patient.first_name + ": "+ @patient.email 
+
+    redirect_to patients_url
   end
 
   # GET /patients/new
@@ -31,7 +32,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+        format.html { redirect_to patients_url, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
