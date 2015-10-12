@@ -9,3 +9,5 @@
 ### MISC
 
 * Time zone is set ```config.time_zone = 'Pacific Time (US & Canada)'``` in ```application.rb```
+
+* Appointment validates date and time with custom method that makes sure they will be in the future
