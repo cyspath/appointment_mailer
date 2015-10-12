@@ -1,20 +1,21 @@
 class Appointment < ActiveRecord::Base
   validates :date, presence: true
-  validate :date_cannot_be_in_the_past
   validates :time, presence: true
-
-  validate :time_cannot_be_in_the_past
+  validate :datetime_cannot_be_in_the_past
   validates :location, presence: true
 
   belongs_to :patient
 
 
-  def date_cannot_be_in_the_past
-    errors.add(:date, "must be a future date") if date < Date.today
-  end
+  def datetime_cannot_be_in_the_past
+    if date < Date.today
+      errors.add(:date, "must be a future date")
+    end
 
-  def time_cannot_be_in_the_past
-    errors.add(:time, "must be in the future") if time < Time.now
+    if date == Date.today && time.seconds_since_midnight < Time.now.seconds_since_midnight
+      errors.add(:time, "must be in the future")
+    end
+
   end
 
 end
