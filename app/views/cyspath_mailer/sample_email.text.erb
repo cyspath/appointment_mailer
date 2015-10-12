@@ -11,4 +11,8 @@ Date: <%= apt.date.strftime("%b %d, %Y - %A") %>
 
 Time: <%= apt.time.strftime("%I:%M%p") %>
 
+<% address = '20445 Pacifica Dr #C, Cupertino, CA 95014' if  apt.location == "cupertino" %>
+<% address = '991 Montague Expy #110, Milpitas, CA 95035' if  apt.location == "milpitas" %>
+Address: <%= address %>
+
 <% end %>

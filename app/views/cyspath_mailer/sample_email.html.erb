@@ -17,10 +17,15 @@
         <strong>Date:</strong>
         <%= apt.date.strftime("%b %d, %Y - %A") %>
       </p>
-
       <p>
         <strong>Time:</strong>
         <%= apt.time.strftime("%I:%M%p") %>
+      </p>
+      <p>
+        <strong>location: </strong>
+        <% address = '20445 Pacifica Dr #C, Cupertino, CA 95014' if  apt.location == "cupertino" %>
+        <% address = '991 Montague Expy #110, Milpitas, CA 95035' if  apt.location == "milpitas" %>
+        <%= address %>
       </p>
       <br>
     <% end %>

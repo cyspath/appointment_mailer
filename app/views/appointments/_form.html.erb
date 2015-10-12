@@ -25,7 +25,12 @@
   </div>
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <!-- <%= f.text_field :location %> -->
+    <select name='appointment[location]'>
+        <option value='cupertino'>Cupertino</option>
+        <option value='milpitas'>Milpitas</option>
+    </select>
+
   </div>
   <div class="actions">
     <%= f.submit %>
